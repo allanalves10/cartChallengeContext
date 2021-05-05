@@ -1,7 +1,7 @@
 import { createContext, ReactNode, useContext, useState } from 'react';
 import { toast } from 'react-toastify';
 import { api } from '../services/api';
-import { Product, Stock } from '../types';
+import { Product } from '../types';
 
 interface CartProviderProps {
   children: ReactNode;
@@ -74,7 +74,6 @@ export function CartProvider({ children }: CartProviderProps): JSX.Element {
         setCart(updatedCart);
         localStorage.setItem('@RocketShoes:cart', JSON.stringify(updatedCart));
       } else {
-        // toast.error('Produto não encontrado!');
         throw Error();
       }
     } catch {
